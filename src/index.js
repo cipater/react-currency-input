@@ -236,8 +236,7 @@ class CurrencyInput extends Component {
     event.persist() // fixes issue #23
 
     this.setState({ maskedValue, value }, () => {
-      this.props.onChange(maskedValue, value, event)
-      this.props.onChangeEvent(event, maskedValue, value)
+      this.props.onChange(event, value)
     })
   }
 
@@ -305,10 +304,7 @@ CurrencyInput.propTypes = {
 }
 
 CurrencyInput.defaultProps = {
-  onChange: function(maskValue, value, event) {
-    /*no-op*/
-  },
-  onChangeEvent: function(event, maskValue, value) {
+  onChange: function(event, value) {
     /*no-op*/
   },
   autoFocus: false,
